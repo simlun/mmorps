@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html ng-app>
+<html lang="en" ng-app>
     <head>
         <link href="css/bootstrap.css" rel="stylesheet" media="screen" />
         <link href="css/bootstrap-override.css" rel="stylesheet" media="screen" />
         <link href="css/style.css" rel="stylesheet" media="screen" />
         <script src="js/bootstrap.min.js"></script>
         <script src="js/angular.min.js"></script>
+        <script src="js/controller.js"></script>
     </head> 
-    <body>
+    <body ng-controller="MMORPSController">
         <div class="container">
             <div class="row">
                 <div class="span4 offset4 text-center">
                     <form method="post">
                         <div class="row">
-                            <input type="range" min="2" max="10" value="3" ng-model="players"/>
+                            <input type="range" min="2" max="10" ng-model="players"/>
                         </div>
-                        <p>{{players=3}}</p>
+                        <div class="row">{{players}}</div>
                         <div class="row">
                             <input type="submit" class="btn" value="Create a new game!" />
                         </div>
