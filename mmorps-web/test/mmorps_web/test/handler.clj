@@ -17,5 +17,7 @@
 (fact "POSTing to /game calls createGame"
   (app (request :post "/game")) => irrelevant
   (provided
-    (createGame) => {:status irrelevant}))
+    (createGame anything) => {:status irrelevant}))
 
+(comment (fact 
+    (createGame {}))) 
