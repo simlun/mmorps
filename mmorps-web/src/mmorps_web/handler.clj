@@ -2,13 +2,12 @@
   (:use compojure.core)
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
-	    [ring.middleware.json :as json]))
-
-(defn createGame [request] (println request) (:players (:body request)))
+            [ring.middleware.json :as json]
+            [mmorps-web.controller :as controller]))
 
 (defroutes app-routes
   (GET "/hello" [] "Hello World")
-  (POST "/game" [] createGame)
+  (POST "/game" [] controller/create-game-links)
   (route/files "/")
   (route/not-found "Not Found"))
 

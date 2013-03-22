@@ -1,8 +1,9 @@
 (ns mmorps-web.test.handler
   (:use clojure.test
         midje.sweet
-        ring.mock.request  
-        mmorps-web.handler))
+        ring.mock.request
+        mmorps-web.handler)
+  (:require [mmorps-web.controller :as controller]))
 
 (deftest test-app
   (testing "main route"
@@ -14,10 +15,8 @@
     (let [response (app (request :get "/invalid"))]
       (is (= (:status response) 404)))))
 
-(fact "POSTing to /game calls createGame"
+(fact "POSTing to /game calls create-game"
   (app (request :post "/game")) => irrelevant
   (provided
-    (createGame anything) => {:status irrelevant}))
+    (controller/create-game-links anything) => {:status irrelevant}))
 
-(comment (fact 
-    (createGame {}))) 
