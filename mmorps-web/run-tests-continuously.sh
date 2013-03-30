@@ -1,3 +1,3 @@
 #!/bin/bash
 set -e
-lein midje :autotest
+lein midje :autotest src test checkouts/mmorps/src
